@@ -73,4 +73,5 @@ jobs:
           upload_url: ${{ steps.get_release.outputs.upload_url }}
           asset_path: ./plugin.zip
           asset_name: plugin.zip
+          asset_label: testlabel
           asset_content_type: application/zip
