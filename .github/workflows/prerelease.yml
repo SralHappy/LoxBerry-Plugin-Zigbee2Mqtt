@@ -64,21 +64,13 @@ jobs:
         with:
           files: .
           dest: plugin.zip
-      #- name: Upload Release Asset
-      #  id: upload-release-asset
-      #  uses: actions/upload-release-asset@v1
-      #  env:
-      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #  with:
-      #    upload_url: ${{ steps.get_release.outputs.upload_url }}
-      #    asset_path: ./plugin.zip
-      #    asset_name: plugin.zip
-      #    asset_label: testlabel
-      #    asset_content_type: application/zip
-      - name: Upload Release Asset New
-        uses: softprops/action-gh-release@v1
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: ${{ github.token }}
-        if: startsWith(github.ref, 'refs/tags/')
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          files: plugin.zip
+          upload_url: ${{ steps.get_release.outputs.upload_url }}
+          asset_path: ./plugin.zip
+          asset_name: plugin.zip
+          asset_content_type: application/zip
